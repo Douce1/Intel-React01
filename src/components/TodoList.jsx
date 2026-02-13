@@ -83,7 +83,7 @@ function TodoList() {
         }}
       />
 
-      <h1>📝 Todo List</h1>
+      <h1>📝 오늘의 할일</h1>
 
       <div className="input-box">
         <input
