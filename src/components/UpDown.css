@@ -1,0 +1,128 @@
+/* 1. 폰트를 조금 더 둥글고 귀여운 'Nunito'로 변경했습니다. */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap");
+
+body {
+  font-family: "Nunito", sans-serif;
+  /* 배경을 심심한 단색 대신 세련된 그라데이션으로 변경 */
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.game-container {
+  background-color: rgba(255, 255, 255, 0.95); /* 약간의 투명도 추가 */
+  padding: 50px 70px;
+  border-radius: 25px; /* 모서리를 더 둥글게 */
+  /* 그림자를 더 부드럽고 깊이감 있게 수정 */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  /* 마우스 올렸을 때 살짝 떠오르는 효과를 위한 준비 */
+  transition: transform 0.3s ease;
+  max-width: 500px;
+  width: 90%;
+}
+
+.game-container:hover {
+  transform: translateY(-5px); /* 마우스를 올리면 살짝 위로 뜸 */
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 2.5em;
+  font-weight: 800;
+  /* 텍스트에 그라데이션 효과 (지원 브라우저용) */
+  background: linear-gradient(to right, #30cfd0, #330867);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  margin: 10px 0 30px 0;
+  color: #7f8c8d;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.input-group {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* 입력창과 버튼 사이 간격 */
+}
+
+input[type="number"] {
+  padding: 15px 20px;
+  width: 120px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px; /* 알약 모양 */
+  font-size: 18px;
+  text-align: center; /* 숫자 가운데 정렬 */
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+input[type="number"]:focus {
+  border-color: #66a6ff;
+  background-color: #fff;
+  outline: none;
+  /* 포커스 시 부드러운 파란색 광채 */
+  box-shadow: 0 0 0 4px rgba(102, 166, 255, 0.2);
+}
+
+button {
+  padding: 15px 30px;
+  /* 버튼에도 그라데이션 적용 */
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50px; /* 알약 모양 */
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: inherit;
+  box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px); /* 살짝 위로 올라감 */
+  box-shadow: 0 8px 20px rgba(118, 75, 162, 0.6);
+  background: linear-gradient(
+    to right,
+    #764ba2,
+    #667eea
+  ); /* 그라데이션 방향 반전 */
+}
+
+button:active {
+  transform: translateY(1px); /* 클릭 시 눌리는 느낌 */
+}
+
+/* 결과 메시지 스타일 강화 */
+#result {
+  margin-top: 30px;
+  font-size: 1.4em;
+  font-weight: 800;
+  color: #2c3e50;
+  min-height: 1.5em; /* 결과가 없어도 공간 유지해서 덜그럭거림 방지 */
+  animation: popIn 0.3s ease; /* 결과 나올 때 톡 튀어나오는 애니메이션 */
+}
+
+/* 결과 메시지 애니메이션 정의 */
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

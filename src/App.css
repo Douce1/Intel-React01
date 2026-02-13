@@ -1,0 +1,10 @@
+.profile-card {
+  background-color: thistle;
+  align-items: center;
+  padding: 20px;
+  width: 400px;
+  border-radius: 30px;
+  border: 1px solid gray;
+  text-align: center;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
