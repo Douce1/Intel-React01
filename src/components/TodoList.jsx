@@ -1,14 +1,12 @@
 import "./TodoList.css";
 import { useState, useEffect } from "react";
 
-const todoList = [];
-
 function TodoItem({ todo, isDoneToggle, deleteTodo }) {
   return (
     <li className={todo.isDone ? "completed" : ""}>
       <input
         type="checkbox"
-        defaultChecked={todo.isDone}
+        checked={todo.isDone} // defaultChecked 대신 checked 권장
         onChange={() => {
           isDoneToggle(todo.id);
         }}
@@ -20,12 +18,21 @@ function TodoItem({ todo, isDoneToggle, deleteTodo }) {
 }
 
 function TodoList() {
+  // 1. 로컬 스토리지 에러 방지 (try-catch 적용)
   const [todos, setTodos] = useState(() => {
-    const saved = localStorage.getItem("todos");
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem("todos");
+      // 데이터가 있고, "undefined"라는 문자열이 아닐 때만 파싱
+      if (saved && saved !== "undefined") {
+        return JSON.parse(saved);
+      }
+      return [];
+    } catch (error) {
+      console.error("데이터 불러오기 실패:", error);
+      return []; // 에러가 나면 빈 배열 반환해서 앱이 안 터지게 보호
+    }
   });
 
-  // const [todos, setTodos] = useState(todoList);
   const [todoValue, setTodoValue] = useState("");
   const [showIncomplete, setShowIncomplete] = useState(false);
 
@@ -73,7 +80,7 @@ function TodoList() {
     <div className="todo-wrapper">
       <div className="container">
         <img
-          src="/to-do.jpg"
+          src="to-do.jpg" /* 2. 배포 환경을 위해 맨 앞의 슬래시(/) 제거 */
           alt="Banner"
           style={{
             width: "100%",
