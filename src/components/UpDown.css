@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap");
+
+/* body를 대신할 전체 배경 래퍼 */
+.updown-wrapper {
+  font-family: "Nunito", sans-serif;
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.updown-wrapper .game-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 50px 70px;
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease;
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.updown-wrapper .game-container:hover {
+  transform: translateY(-5px);
+}
+
+.updown-wrapper h1 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 2.2em;
+  font-weight: 800;
+  background: linear-gradient(to right, #30cfd0, #330867);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.updown-wrapper p {
+  margin: 10px 0 30px 0;
+  color: #7f8c8d;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.updown-wrapper .input-group {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.updown-wrapper input[type="number"] {
+  padding: 15px 20px;
+  width: 120px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  font-size: 18px;
+  text-align: center;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.updown-wrapper input[type="number"]:focus {
+  border-color: #66a6ff;
+  background-color: #fff;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(102, 166, 255, 0.2);
+}
+
+.updown-wrapper button {
+  padding: 15px 30px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: inherit;
+  box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+  transition: all 0.3s ease;
+}
+
+.updown-wrapper button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(118, 75, 162, 0.6);
+  background: linear-gradient(to right, #764ba2, #667eea);
+}
+
+.updown-wrapper button:active {
+  transform: translateY(1px);
+}
+
+.updown-wrapper #result {
+  margin-top: 30px;
+  font-size: 1.4em;
+  font-weight: 800;
+  color: #2c3e50;
+  min-height: 1.5em;
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
