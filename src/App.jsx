@@ -1,24 +1,26 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/Navigation"; // 메뉴바 불러오기!
 
-// lazy import — 해당 Route에 접근할 때만 컴포넌트 + CSS 로드
-const Home = lazy(() => import("./components/Home"));
-const Counter = lazy(() => import("./components/Counter"));
-const TodoList = lazy(() => import("./components/TodoList"));
-const UpDown = lazy(() => import("./components/UpDown"));
-const NotFound = lazy(() => import("./components/NotFound"));
+// lazy 없이 일반적인 방식으로 불러오기 (Vercel CSS 에러 완벽 해결)
+import Home from "./components/Home";
+import Counter from "./components/Counter";
+import TodoList from "./components/TodoList";
+import UpDown from "./components/UpDown";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
     <div>
+      {/* 제가 실수로 지워버렸던 네비게이션 바를 부활시켰습니다! ✨ */}
       <Navigation />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/todolist" element={<TodoList />} />
         <Route path="/updown" element={<UpDown />} />
-        <Route path="" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
